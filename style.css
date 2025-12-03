@@ -1,0 +1,240 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #edffee;
+    color: rgb(58, 58, 58);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+h2::after {
+    content: " 🌸";
+}
+
+
+ /* Tabela Glossário */
+.table-geral {
+
+    box-shadow: 0 0 10px rgba(215, 103, 232, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-geral th {
+    background-color: #d4adee;
+}
+
+.table-geral tbody tr:hover td{
+    background-color: rgb(187, 180, 201);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+/* Navbar */
+.custom-navbar {
+    background-color: #f9fff9 !important;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.nav-link {
+    color: rgb(99, 5, 5) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #3a7c3a !important;
+    text-decoration: none;
+}
+
+/* Seção Sobre */
+.sobre-home {
+    background-color: #caeab9a4; /* verde pastel */
+    padding: 40px 0;          
+}
+
+.sobre-tipoflores {
+    background-color: #e7d9f0; /* roxo pastel */
+    padding: 40px 0;           
+}
+
+.sobre-arranjos{
+    background-color: #fffbbe; /* amarelo pastel */
+    padding: 40px 0;  
+}
+
+.sobre-cestas{
+    background-color: #d9edf7; /* azul pastel */
+    padding: 40px 0;  
+}
+
+.sobre-contato{
+    background-color: #f3f3f3; /* lilás pastel */
+    padding: 40px 0;  
+}
+
+.sobre-form{
+    background-color: #ffdcf7; /* rosa pastel */
+    padding: 40px 0;
+}
+
+
+#flores-selecao-collapse {
+    max-height: 300px; /*altura da caixa de seleção */
+    overflow-y: auto; 
+    background-color: #fdf8f8; /* Fundo branco para contraste */
+}
+
+#flores-selecao-container .form-check {
+    margin-bottom: 0.3rem; 
+    padding-left: 1.5em;
+}
+
+
+.form-check-input {
+    width: 1em; 
+    height: 1em;
+    margin-top: 0.25em; 
+    vertical-align: top;
+}
+
+
+#fieldset-encomenda label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#fieldset-encomenda input:not([type="radio"]):not([type="checkbox"]), 
+#fieldset-encomenda textarea, 
+#fieldset-encomenda select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+.page-encomendas .item-compra {
+    /* 1. Aumenta o tamanho */
+    width: 1.5em; 
+    height: 1.5em;
+    
+    /* 2. Deixa a borda mais grossa e escura (cinza escuro) quando desmarcado */
+    border: 2px solid #5a5a5a; 
+    
+    /* 3. Melhora o cursor */
+    cursor: pointer;
+    margin-right: 10px; /* Espaço entre a caixa e o texto */
+    vertical-align: middle;
+}
+
+/* Quando o mouse passa por cima (Hover) */
+.page-encomendas .item-compra:hover {
+    border-color: #198754; /* Verde ao passar o mouse */
+    background-color: #e8f5e9;
+}
+
+/* Quando está MARCADO (Checked) */
+.page-encomendas .item-compra:checked {
+    background-color: #198754; /* Fundo Verde Escuro */
+    border-color: #198754;      /* Borda Verde Escura */
+    
+    /* 4. Remove aquele brilho azul padrão do Bootstrap e coloca um verde */
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); 
+    
+    /* Aumenta a imagem do "check" (v) */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+}
+
+.page-encomendas .card-produto {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.page-encomendas .card-produto:hover {
+    border-color: #d691bc; /* Rosa escuro */
+    background: #fffbf9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.page-encomendas .status-bar {
+    background-color: #fff;
+    border-left: 5px solid #d63384; /* Rosa forte */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Faz o resumo ficar fixo na direita ao rolar */
+.page-encomendas .resumo-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+}
+
+/* Remove a margem direita global do CSS original que pode quebrar o layout */
+.page-encomendas .row div {
+    margin-right: 0 !important;
+}
+
+#fieldset-contato label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#fieldset-contato input:not([type="radio"]):not([type="checkbox"]), 
+#fieldset-contato textarea, 
+#fieldset-contato select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.texto-sobre {
+    color: rgb(58, 58, 58);
+}
+
+/* Footer */
+.custom-footer {
+    background-color: #f1f1f1;
+    color: rgb(58, 58, 58);
+    border-top: 2px solid #ccc;
+}
+
+.custom-footer p {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.highlight {
+    background-color: rgb(255, 221, 127);
+    color: #c90909;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+div{
+    margin-right: 40px;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encomendas - Floricultura</title>
+    <link rel="icon" type="image/png" href="../images/FloriCultura.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style.css">
+    
+    </head>
+
+<body class="page-encomendas">
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
+        <section class="container-fluid">
+            <a class="navbar-brand" href="../home.html">
+                <img src="../images/FloriCultura.png" alt="Ir para a home" class="logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <section class="collapse navbar-collapse" id="menu">
+                <ul class="nav nav-underline me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-2"><a class="nav-link" href="../home.html">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="Arranjos.html">Arranjos</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="Cestas.html">Cestas</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="TiposFlores.html">Glossário das Flores</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link active" href="Encomendas.html">Compre conosco</a></li>
+                </ul>
+                <div id="userArea"></div>
+            </section>
+        </section>
+    </nav>
+</header>
+
+<main class="sobre-form py-5"> 
+    <div class="container">
+        
+        <h2 class="text-center mb-5">Faça sua Compra</h2>
+
+        <div id="statusUsuario" class="status-bar d-none">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-2 mb-md-0">
+                    <h5 class="m-0">Olá, <span id="lblNome" class="text-success fw-bold">Cliente</span>! 🌸</h5>
+                </div>
+                <div class="col-md-4 text-center mb-2 mb-md-0">
+                    <span class="badge bg-warning text-dark fs-6 shadow-sm" id="lblRanque">...</span>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <span>Saldo: <strong class="text-success fs-4" id="lblSaldo">0</strong> pts</span>
+                </div>
+            </div>
+            <hr>
+            <small class="text-muted d-block" id="lblBeneficios">Carregando benefícios...</small>
+        </div>
+
+        <div class="alert alert-warning text-center shadow-sm d-none" id="avisoLogin">
+            🔒 Você precisa fazer <a href="login.html" class="fw-bold text-dark">Login</a> para ver seus pontos e realizar a compra.
+        </div>
+
+        <form id="formEncomenda">
+            <div class="row g-4"> <div class="col-lg-8">
+                    <h4 class="mb-3">Selecione os Itens:</h4>
+                    <div id="lista-produtos-container">
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-success" role="status"></div>
+                            <p class="mt-2 text-muted">Carregando flores frescas...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="resumo-sticky">
+                        <div class="card shadow border-0">
+                            <div class="card-header bg-success text-white py-3">
+                                <h5 class="card-title m-0 text-center">Resumo do Pedido 🛒</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <h6 class="text-muted mb-3 border-bottom pb-2">Itens Selecionados:</h6>
+                                    <ul id="listaResumo" class="list-unstyled mb-3" style="max-height: 200px; overflow-y: auto;">
+                                        <li class="text-muted small">Nenhum item selecionado</li>
+                                    </ul>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fs-5 text-muted">Total (R$):</span>
+                                    <span class="fs-3 fw-bold text-dark">R$ <span id="totalReais">0,00</span></span>
+                                </div>
+                                
+                                <div class="alert alert-info py-2 mb-3">
+                                    <small>Você ganhará:</small><br>
+                                    <strong class="fs-5 text-primary">+ <span id="totalPontosGanhar">0</span> pts</strong>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-check form-switch my-3 p-3 bg-light rounded">
+                                    <input class="form-check-input" type="checkbox" id="usarPontosCheck" style="cursor: pointer;">
+                                    <label class="form-check-label ms-2" for="usarPontosCheck" style="cursor: pointer;">
+                                        <strong>Pagar com Pontos</strong><br>
+                                        <small class="text-muted">Disponível: <span id="lblSaldoResumo">0</span></small>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-success w-100 py-2 fw-bold shadow-sm" id="btnFinalizar">
+                                    Finalizar Compra
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </form>
+    </div>
+</main>
+
+<footer class="text-center py-4 custom-footer">
+    <p>Desenvolvido por: <strong>Floris Webdesigns</strong></p>
+    <p>Copyright © 2000 - 2025 www.florifloricultura.com.br | Todos os direitos reservados.</p>
+    <p>É vetada a reprodução total ou parcial sem autorização da administradora.</p>
+    <p><strong>FloriCultura Comércio de Flores e Arranjos LTDA</strong> | CNPJ: 44.452.529/9546-49</p>
+    <p>Endereço: Estrada das Rosas, Km 7,5 – Holambra – SP</p>
+    <p>Central de atendimento: (11) 4443-5252</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../scripts.js"></script> 
+<script src="encomendas.js"></script> 
+
+</body>
+</html>

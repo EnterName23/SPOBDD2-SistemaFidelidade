@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login - Floricultura</title>
+
+    <link rel="icon" type="image/png" href="images/FloriCultura.png">
+
+    <link rel="icon" type="image/png" href="images/FloriCultura.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
+            <section class="container-fluid">
+
+                <a class="navbar-brand" href="../home.html">
+                    <img src="../images/FloriCultura.png" alt="Ir para a home" class="logo">
+                </a>
+                <section class="collapse navbar-collapse" id="menu">
+                    <ul class="nav nav-underline me-auto mb-2 mb-lg-0">
+                    <li class="nav-item mx-2"><a class="nav-link" href="../home.html">Home</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="Arranjos.html">Arranjos</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="Cestas.html">Cestas</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="TiposFlores.html">Glossário das Flores</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" href="Encomendas.html">Compre conosco</a></li>
+                </ul>
+
+
+                <!-- Área de login / usuário -->
+                <div id="userArea"></div>
+                </section>
+            </section>
+        </nav>
+    </header>
+
+
+<main class="sobre-form my-5">
+        <section class="container d-flex justify-content-center mt-5">
+            <section  class="card p-5 shadow col-md-6 texto-center">
+                <form id="formLogin">
+                    <fieldset id="fieldset-login">
+                    <legend>Login</legend>
+                    <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control mb-3"
+                        title="Seu email" placeholder="exemplo@dominio.com" autocomplete="email">
+                                    
+                    <label for="senha" class="form-label">Senha:</label>
+                    <input type="password" id="senha" name="senha" class="form-control mb-3"
+                        title="Escolha uma senha segura" placeholder="Digite sua senha" autocomplete="new-password">
+                    
+                    <button type="submit" class="btn btn-success w-100 mb-3">Login</button>
+
+                    <p class="text-center">
+                        Não tem conta?
+                        <a href="cadastro.html">Cadastre-se</a>
+                    </p>
+
+                    <p id="msg" class="text-center mt-2"></p>
+                    </fieldset>
+                </form>
+            </section>
+        </section>
+</main>
+
+<script>
+// Atualiza menu do usuário (igual ao Home)
+function atualizarMenuUsuario() {
+    const userArea = document.getElementById("userArea");
+    const token = localStorage.getItem("token");
+    const nome = localStorage.getItem("nome");
+
+    if (!token) {
+        userArea.innerHTML = `
+            <a href="login.html" class="btn btn-danger ms-3">Entrar</a>
+        `;
+        return;
+    }
+
+    userArea.innerHTML = `
+        <div class="dropdown ms-3">
+            <button class="btn btn-outline-success dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                ${nome}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Minha Conta</a></li>
+                <li><a class="dropdown-item" id="logoutBtn" href="#">Sair</a></li>
+            </ul>
+        </div>
+    `;
+
+    document.getElementById("logoutBtn").onclick = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("nome");
+        location.reload();
+    };
+}
+
+atualizarMenuUsuario();
+
+
+// ========================= LOGIN VIA FETCH =========================
+
+document.getElementById("formLogin").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+    const msg = document.getElementById("msg");
+
+    msg.textContent = "Processando...";
+
+    try {
+        const response = await fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, senha })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            msg.textContent = data.erro || "Erro no login.";
+            msg.style.color = "red";
+            return;
+        }
+
+        // Salva os dados
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("nome", data.nome);
+
+        msg.textContent = "Login realizado!";
+        msg.style.color = "green";
+
+        setTimeout(() => {
+            window.location.href = "../home.html";
+        }, 900);
+
+    } catch (err) {
+        msg.textContent = "Erro ao conectar ao servidor.";
+        msg.style.color = "red";
+    }
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../script-auth.js"></script>
+</body>
+</html>

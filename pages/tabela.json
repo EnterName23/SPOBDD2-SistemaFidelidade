@@ -1,0 +1,77 @@
+[
+    {
+    "nome": "Rosa Vermelha",
+    "definicao": "Clássica flor que simboliza o amor e a paixão.",
+    "valor": "5.00"
+    },
+    {
+    "nome": "Girassol",
+    "definicao": "Conhecido por seguir o sol, simboliza felicidade e lealdade.",
+    "valor": "7.50"
+    },
+    {
+    "nome": "Orquídea Phalaenopsis",
+    "definicao": "Elegante e duradoura, perfeita para presentes sofisticados.",
+    "valor": "45.00"
+    },
+    {
+    "nome": "Lírio Branco",
+    "definicao": "Simboliza a pureza, inocência e a paz.",
+    "valor": "9.00"
+    },
+    {
+    "nome": "Margarida",
+    "definicao": "Representa a simplicidade, juventude e o 'bem-me-quer'.",
+    "valor": "3.50"
+    },
+    {
+    "nome": "Tulipa Vermelha",
+    "definicao": "Símbolo de amor perfeito e elegância. Muito popular na primavera.",
+    "valor": "6.00"
+    },
+    {
+    "nome": "Gérbera Colorida",
+    "definicao": "Representa a alegria, energia e pureza. Disponível em várias cores vibrantes.",
+    "valor": "4.00"
+    },
+    {
+    "nome": "Cravo Branco",
+    "definicao": "Associado ao amor puro e boa sorte. Uma flor tradicional e duradoura.",
+    "valor": "3.00"
+    },
+    {
+    "nome": "Azaleia Rosa",
+    "definicao": "Arbusto que simboliza a perseverança e a feminilidade. Ótima para vasos.",
+    "valor": "35.00"
+    },
+    {
+    "nome": "Bromélia Guzmania",
+    "definicao": "Flor tropical exótica, simboliza a inspiração e a resistência.",
+    "valor": "55.00"
+    },
+    {
+    "nome": "Hortênsia Azul",
+    "definicao": "Simboliza a devoção, gratidão e a abundância. A cor pode variar com o pH do solo.",
+    "valor": "15.00"
+    },
+    {
+    "nome": "Violeta Africana",
+    "definicao": "Pequena e delicada, perfeita para interiores. Simboliza a modéstia e a lealdade.",
+    "valor": "12.00"
+    },
+    {
+    "nome": "Antúrio Vermelho",
+    "definicao": "Com sua folha brilhante em forma de coração, representa a hospitalidade.",
+    "valor": "40.00"
+    },
+    {
+    "nome": "Copo-de-leite",
+    "definicao": "Flor nobre e sofisticada, usada em casamentos por simbolizar a pureza.",
+    "valor": "8.00"
+    },
+    {
+    "nome": "Astromélia",
+    "definicao": "Simboliza a amizade duradoura e a felicidade plena. Dura muito tempo no vaso.",
+    "valor": "4.50"
+    }
+    ]
